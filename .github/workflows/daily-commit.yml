@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Update timestamp - 23f1001411@ds.study.iitm.ac.in
         run: |
@@ -19,4 +21,8 @@ jobs:
           git config user.name "GitHub Action Bot"
           git config user.email "23f1001411@ds.study.iitm.ac.in"
           git add daily-update.txt
-          git commit -m "Daily update: $(date -u)" || echo "No changes to c
+          git commit -m "Daily update: $(date -u)" || echo "No changes to commit"
+      
+      - name: Push changes
+        run: |
+          git push origin HEAD:${{ github.ref_name }}
