@@ -19,7 +19,4 @@ jobs:
           git config user.name "GitHub Action Bot"
           git config user.email "23f1001411@ds.study.iitm.ac.in"
           git add daily-update.txt
-          git commit -m "Daily update: $(date -u)" || echo "No changes to commit"
-
-      - name: Push changes
-        en
+          git commit -m "Daily update: $(date -u)" || echo "No changes to c
